@@ -11,7 +11,7 @@
 import event from './event';
 import util from './util';
 
-let PAGE_EVENT = ['onLoad', 'onReady', 'onShow', 'onHide', 'onUnload', 'onPullDownRefresh', 'onReachBottom', 'onShareAppMessage', 'onPageScroll', 'onTabItemTap'];
+let PAGE_EVENT = ['onLoad', 'onReady', 'onShow', 'onHide', 'onUnload', 'onPullDownRefresh', 'onReachBottom', 'onShareAppMessage', 'onPageScroll', 'onTabItemTap', 'onShareTimeline'];
 let APP_EVENT = ['onLaunch', 'onShow', 'onHide', 'onError', 'onPageNotFound'];
 
 
@@ -194,7 +194,7 @@ export default {
                 config[v] = (...args) => {
                     let rst;
 
-                    if (v === 'onShareAppMessage') {
+                    if (v === 'onShareAppMessage' || v === 'onShareTimeline') {
 						page[v] && (rst = page[v].apply(page, args));
 						return rst;
                     }
